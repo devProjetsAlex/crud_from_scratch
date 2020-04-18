@@ -8,7 +8,7 @@ class ArticlesController < ApplicationController
     end
 
     def new
-
+        @article = Article.new
     end
 
     def create
@@ -20,5 +20,5 @@ class ArticlesController < ApplicationController
        else
         render 'new'
     end
-
+  end
 end
