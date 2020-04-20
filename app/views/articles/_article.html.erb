@@ -2,7 +2,7 @@
     <% @articles.each do |article| %>
 <div class="card text-center shadow p-3 mb-5 bg-white rounded">
   <div class="card-header">
-    Spot créer par <%= article.user.username%>
+    <%= link_to article.user.username, user_path(article.user)%>
   </div>
   <div class="card-body">
     <h5 class="card-title"><%= link_to article.title, article_path(article), class:"text-success" %></h5>
