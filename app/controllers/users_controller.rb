@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:show, :edit, :update]
 
   def show
     @user = User.find(params[:id])
@@ -33,6 +34,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if@user.save
+      session[:user_id] = @user.id
       flash[:notice] ="Welcome to the BADASS spot sharing #{@user.username}, you've logged in successfully!"
       redirect_to articles_path
 
@@ -40,10 +42,15 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
+  
+    def set_user
+      @user = User.find(params[:id])
+    end
 
   private
   def user_params
     params.require(:user).permit(:username, :email, :password)
   end
+
 
 end
