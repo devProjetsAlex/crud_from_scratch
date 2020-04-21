@@ -1,3 +1,20 @@
 <h1 class="text-center mt-4">BADASS SPOT </h1>
 
+<div class="container">
+<div class="apple_pagination">
+    <div class="page_info">
+      <%= page_entries_info @articles %>
+    </div>
+    <%= will_paginate @articles , :container => false %>
+  </div>
+  </div>
 <%= render 'article'%>
+
+<div class="container">
+<div class="apple_pagination">
+    <div class="page_info">
+      <%= page_entries_info @articles %>
+    </div>
+    <%= will_paginate @articles , :container => false %>
+  </div>
+  </div>
